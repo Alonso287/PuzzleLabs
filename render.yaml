@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: puzzle-api
+    runtime: python
+    buildCommand: ""
+    startCommand: "python api.py"
+    envVars:
+      - key: FLASK_ENV
+        value: production
