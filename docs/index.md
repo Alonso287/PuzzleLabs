@@ -4,18 +4,18 @@ layout: home
 
 hero:
   name: "PuzzleLabs"
-  text: ""
+  text: "Una guía sobre algoritmos de puzles"
   tagline: Una guía para comprender el funcionamiento de distintos algoritmos de puzles
   actions:
     - theme: brand
       text: Introducción
       link: /intro.md
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: GitHub
+      link: https://github.com/Alonso287/PuzzleLabs
 
 features:
-  - title: Feature A
+  - title: Sudoku
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
