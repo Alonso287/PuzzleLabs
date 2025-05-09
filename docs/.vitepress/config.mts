@@ -1,4 +1,5 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress';
+/* import { SearchPlugin } from "vitepress-plugin-search"; */
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -22,9 +23,14 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+      { icon: 'github', link: 'https://github.com/Alonso287/PuzzleLabs' }
+    ],
+
+    search: {
+      provider: 'local'
+    }
   },
+
   markdown: {
     theme: {
       light: 'catppuccin-latte',
@@ -37,7 +43,7 @@ export default defineConfig({
       'link', 
       { rel: 'icon', 
         type:"image/png", 
-        href: '/public/favicon/favicon-96x96.png',
+        href: '/favicon/favicon-96x96.png',
         sizes:'96x96' 
       }
     ],
@@ -45,19 +51,19 @@ export default defineConfig({
       'link', 
       { rel: 'icon', 
         type:"image/svg+xml", 
-        href: '/public/favicon/favicon.svg'
+        href: '/favicon/favicon.svg'
       }
     ],
     [
       'link', 
       { rel: 'shortcut icon', 
-        href: '/public/favicon/favicon.ico' 
+        href: '/favicon/favicon.ico' 
       }
     ],    
     [
       'link', 
       { rel: 'apple-touch-icon', 
-        href: '/public/favicon/apple-touch-icon.png',
+        href: '/favicon/apple-touch-icon.png',
         sizes:'180x180' 
       }
     ],
@@ -70,8 +76,9 @@ export default defineConfig({
     [
       'link', 
       { rel: 'manifest', 
-        href: '/public/favicon/site.webmanifest'
+        href: '/favicon/site.webmanifest'
       }
     ],
-  ]
+  ],
+/*   vite: { plugins: [SearchPlugin(options)]} */
 })
