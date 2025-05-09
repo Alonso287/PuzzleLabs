@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: Introducción
-      link: /intro.md
+      link: /intro
     - theme: alt
-      text: GitHub
-      link: https://github.com/Alonso287/PuzzleLabs
+      text: Roadmap
+      link: /roadmap
 
 features:
   - title: Sudoku
