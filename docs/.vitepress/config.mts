@@ -51,7 +51,7 @@ export default defineConfig({
       provider: 'local'
     },
     
-    logo: '/public/favicon/favicon.svg',
+    logo: './favicon/favicon.svg',
     siteTitle: false,
 
     footer: {
