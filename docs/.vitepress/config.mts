@@ -1,22 +1,44 @@
 import { defineConfig } from 'vitepress';
+import timeline from "vitepress-markdown-timeline";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "PuzzleLabs",
   description: "Una guía sobre algoritmos de puzles",
+  lastUpdated: true,  
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+
+
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Inicio', link: '/' },
+      { text: 'Acerca de ', link: 'about'},
+      { text: 'Changelog', link: 'https://github.com/Alonso287/PuzzleLabs/commits/main/'},
+      { text: 'Local', link: 'http://localhost:5173', target: '_self' },
+      { text: 'Vercel', link: 'https://puzzlelabs.vercel.app/', target:'_self'}
     ],
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Introducción',
+        link: 'intro',
+      },
+      {
+        text: 'Acerca de',
+        link: 'about',
+      },
+      {
+        text: 'Roadmap',
+        link: 'roadmap',
+      },
+      {
+        text: 'Sudoku',
+        collapsed: false,
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          {text: 'Introducción', link: '/sudoku/intro'},
+          {text: 'Algoritmo de creación', link: '/sudoku/maker'},
+          {text: 'Algoritmo de resolución', link: '/sudoku/solver'},
         ]
       }
     ],
@@ -27,6 +49,27 @@ export default defineConfig({
 
     search: {
       provider: 'local'
+    },
+    
+    logo: '/favicon/favicon.svg',
+    siteTitle: false,
+
+    footer: {
+      message: 'PuzzleLabs',
+      copyright: 'Copyright © 2025 Alonso Navarro'
+    },
+
+    editLink:{
+      pattern: 'https://github.com/Alonso287/PuzzleLabs/edit/main/docs/:path',
+      text: 'Editar esta página en GitHub',
+    },
+
+    lastUpdated: {
+      text: 'Última actualización',
+      formatOptions: {
+        dateStyle: 'full',
+        timeStyle: 'medium'
+      }
     }
   },
 
@@ -34,6 +77,9 @@ export default defineConfig({
     theme: {
       light: 'catppuccin-latte',
       dark: 'catppuccin-mocha',
+    },
+    config: (md) => {
+      md.use(timeline);
     },
   },
 
@@ -79,4 +125,4 @@ export default defineConfig({
       }
     ],
   ],
-})
+});
