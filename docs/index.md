@@ -7,7 +7,7 @@ hero:
   text: "Una guía sobre algoritmos de puzles"
   tagline: Una guía para comprender el funcionamiento de distintos algoritmos de puzles
   image:
-    src: /public/favicon/favicon.svg
+    src: /favicon/favicon.svg
     alt: PuzzleLabs
   actions:
     - theme: brand
