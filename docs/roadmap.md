@@ -13,7 +13,7 @@ Puedes ver el changelog completo en [GitHub](https://github.com/Alonso287/Puzzle
 ::: timeline 3.0
 - **Laberinto**
 :::
-::: timeline 5.0
+::: timeline 4.0
 - **Numberlink**
 :::
 ::: timeline 5.0
