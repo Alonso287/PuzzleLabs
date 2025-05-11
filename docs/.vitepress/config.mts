@@ -14,9 +14,14 @@ export default defineConfig({
     nav: [
       { text: 'Inicio', link: '/' },
       { text: 'Acerca de ', link: 'about'},
-      { text: 'Changelog', link: 'https://github.com/Alonso287/PuzzleLabs/commits/main/'},
-      { text: 'Local', link: 'http://localhost:5173', target: '_self' },
-      { text: 'Vercel', link: 'https://puzzlelabs.vercel.app/', target:'_self'}
+      { text: '0.6',
+        items: [
+          { text: 'Roadmap', link: 'roadmap'},
+          { text: 'Changelog', link: 'https://github.com/Alonso287/PuzzleLabs/commits/main/'},
+          { text: 'Local', link: 'http://localhost:5173', target: '_self' },
+          { text: 'Vercel', link: 'https://puzzlelabs.vercel.app/', target:'_self'}
+        ]
+      },
     ],
 
     sidebar: [

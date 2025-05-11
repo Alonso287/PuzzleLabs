@@ -4,7 +4,7 @@ Puedes ver el changelog completo en [GitHub](https://github.com/Alonso287/Puzzle
 - **Eliminación de todos los placeholders y configuración de la página terminada**
 :::
 ::: timeline 1.0
-- ¡Primera Release!
+- **¡Primera Release!**
 - **Sudoku**
 :::
 ::: timeline 2.0

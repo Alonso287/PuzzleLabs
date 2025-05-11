@@ -1,6 +1,7 @@
 import DefaultTheme from "vitepress/theme";
 import "@catppuccin/vitepress/theme/mocha/sapphire.css";
 import Theme from "vitepress/theme";
+import './style.css'
 
 import "vitepress-markdown-timeline/dist/theme/index.css";
 

@@ -3,6 +3,7 @@ Esta página se ha creado como proyecto escolar del IES Airén de Alonso Navarro
 
 La página está creada con [VitePress](https://vitepress.dev/), un generador de páginas web estáticas, diseñado principalmente para páginas de documentación técnica.
 Está alojada en [Vercel](https://vercel.com), y puedes ver el código fuente en [mi repositorio de GitHub](https://github.com/Alonso287/PuzzleLabs).
+Además, puedes ver casi todos cambios que se han hecho a la página desde el inicio en el [historial de commits del repositorio](https://github.com/Alonso287/PuzzleLabs/commits/main/).
 
 Aunque la página parezca poco modificada, en realidad tiene varios plugins y modificaciones internas efectuadas manualmente, entre ellas:
 - Tema [Catppuccin](https://vitepress.catppuccin.com/), para los colores y apariencia general.
