@@ -15,7 +15,7 @@ export default defineConfig({
     nav: [
       { text: 'Inicio', link: '/' },
       { text: 'Acerca de ', link: 'about'},
-      { text: '0.7',
+      { text: '0.8',
         items: [
           { text: 'Roadmap', link: 'roadmap'},
           { text: 'Changelog', link: 'https://github.com/Alonso287/PuzzleLabs/commits/main/'},
