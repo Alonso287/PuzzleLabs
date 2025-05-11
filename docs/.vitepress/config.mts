@@ -83,8 +83,12 @@ export default defineConfig({
         }
       }
     },
+
+    logo: {
+      light: '/favicon/claro.svg',
+      dark: '/favicon/oscuro.svg',
+    },
     
-    logo: '/favicon/favicon.svg',
     siteTitle: false,
 
     footer: {
