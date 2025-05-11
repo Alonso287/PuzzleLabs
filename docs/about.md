@@ -11,6 +11,6 @@ Aunque la página parezca poco modificada, en realidad tiene varios plugins y mo
 - Plugin [VitepresNProgress](https://github.com/ZhongxuYang/vitepress-plugin-nprogress/), para la barra de progreso que aparece en la parte superior.
 - El logo pertenece a [Material Symbols](https://fonts.google.com/icons?selected=Material+Symbols+Outlined:crossword), ajustado a los colores del tema.
 
-Todos los logos funcionan y la página está correctamente ajustada para funcionar en todos los dispositivos.
+La página está correctamente ajustada para funcionar en todos los dispositivos, y ha sido traducida al español manualmente.
 
 En un principio la página iba a tener también generadores de los distintos puzles para probarlos, jugarlos, etc. pero para ello había que crear una API y era mucho trabajo para hacerlo en tan poco tiempo y sin experiencia, así que opté por hacer esto en su luegar, puede que implemente los generadores en un futuro.

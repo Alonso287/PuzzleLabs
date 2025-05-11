@@ -6,10 +6,11 @@ export default defineConfig({
   title: "PuzzleLabs",
   description: "Una guía sobre algoritmos de puzles",
   lastUpdated: true,  
-
+  cleanUrls: true,
+  lang: 'es-ES',
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
 
+    // https://vitepress.dev/reference/default-theme-config
 
     nav: [
       { text: 'Inicio', link: '/' },
@@ -53,7 +54,34 @@ export default defineConfig({
     ],
 
     search: {
-      provider: 'local'
+      provider: 'local',
+      options: {
+        locales: {
+          root: {
+            translations: {
+              button: {
+                buttonText: 'Buscar',
+                buttonAriaLabel: 'Buscar'
+              },
+              modal: {
+                displayDetails: 'Mostrar detalles',
+                resetButtonTitle: 'Borrar',
+                backButtonTitle: 'Volver',
+                noResultsText: 'No se encontraron resultados para',
+                footer: {
+                  selectText: 'para seleccionar',
+                  selectKeyAriaLabel: 'para seleccionar',
+                  navigateText: 'para navegar',
+                  navigateUpKeyAriaLabel: 'flecha arriba',
+                  navigateDownKeyAriaLabel: 'flecha abajo',
+                  closeText: 'para cerrar',
+                  closeKeyAriaLabel: 'esc'
+                }
+              }
+            }
+          },
+        }
+      }
     },
     
     logo: '/favicon/favicon.svg',
@@ -72,13 +100,38 @@ export default defineConfig({
     lastUpdated: {
       text: 'Última actualización',
       formatOptions: {
-        dateStyle: 'full',
-        timeStyle: 'medium'
+        dateStyle: 'short',
+        timeStyle: 'short'
       }
-    }
+    },
+
+    docFooter: {
+      prev: 'Página anterior',
+      next: 'Página siguiente'
+    },
+
+    darkModeSwitchLabel: 'Apariencia',
+    lightModeSwitchTitle: 'Cambiar al modo claro',
+    darkModeSwitchTitle: 'Cambiar al modo oscuro',
+    sidebarMenuLabel: 'Menú',
+    returnToTopLabel: 'Volver arriba',
+    langMenuLabel: 'Seleccionar idioma',
+    skipToContentLabel: 'Saltar al contenido',
+    outlineTitle: 'En esta página',
   },
 
   markdown: {
+    container: {
+      tipLabel: 'Consejo',
+      warningLabel: 'Atención',
+      dangerLabel: 'Peligro',
+      infoLabel: 'Información',
+      detailsLabel: 'Detalles'
+    },
+    image: {
+      // image lazy loading is disabled by default
+      lazyLoading: false
+    },
     theme: {
       light: 'catppuccin-latte',
       dark: 'catppuccin-mocha',
