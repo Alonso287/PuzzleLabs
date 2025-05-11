@@ -1,3 +1,7 @@
+---
+prev: false
+next: false
+---
 <!-- https://github.com/HanochMa/vitepress-markdown-timeline -->
 Puedes ver el changelog completo en [GitHub](https://github.com/Alonso287/PuzzleLabs/commits/main/)
 ::: timeline 0.5

@@ -1,3 +1,7 @@
+---
+prev: false
+next: false
+---
 # Acerca de
 Esta página se ha creado como proyecto escolar del IES Airén de Alonso Navarro, de 1º de Bachillerato para la asignatura Tecnología e Ingeniería I.
 

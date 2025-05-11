@@ -43,8 +43,8 @@ export default defineConfig({
         collapsed: false,
         items: [
           {text: 'Introducción', link: '/sudoku/intro'},
-          {text: 'Algoritmo de creación', link: '/sudoku/maker'},
-          {text: 'Algoritmo de resolución', link: '/sudoku/solver'},
+          {text: 'Resolución', link: '/sudoku/solving'},
+          {text: 'Creación', link: '/sudoku/making'},
         ]
       }
     ],
@@ -121,6 +121,7 @@ export default defineConfig({
   },
 
   markdown: {
+    math: true,
     container: {
       tipLabel: 'Consejo',
       warningLabel: 'Atención',
