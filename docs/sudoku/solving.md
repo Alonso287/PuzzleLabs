@@ -13,3 +13,6 @@ Tomemos el mismo ejemplo, y busquemos una cifra frecuente, como el 5. En las lí
     <img src="/sudoku/sudoku3.png" alt="Método de cribado" style="max-width: 40%; margin: 10px;">
 </div>
 En el ejemplo de antes, busquemos líneas que tengan muchos números, como las dos resaltadas con los números en azul, y eliminando dichos números, podemos concluir que en el campo resaltado en aazul sólo puede ir el número 5.
+
+### Método de los desnudo
+E

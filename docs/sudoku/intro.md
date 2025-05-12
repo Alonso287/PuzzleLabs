@@ -47,8 +47,8 @@ Como curiosidad, aquí tenéis una tabla con la cantidad de cuadrados latinos y 
 </div>
 
 Sin embargo, el sudoku impone una restricción adicional a los subgrupos de 3 x 3 , como si fuera un caso especial de cuadrado latino, lo que nos deja con $6,670,903,752,021,072,936,960\approx6.67\times10^{21}$ soluciones posibles, pero esa cifra baja a $5,472,730,538$ si tenemos en cuenta las simetrías que puedan surgir.
-
-$$\begin{bmatrix}\begin{bmatrix}
+## Descripción matemática formal
+$$\overbrace{\begin{bmatrix}\begin{bmatrix}
  e & c & d \\
  f & g & b \\
  a & i & h
@@ -76,7 +76,7 @@ $$\begin{bmatrix}\begin{bmatrix}
  h & e & f
 \end{bmatrix}
 \\
-\begin{bmatrix}
+\underbrace{\begin{bmatrix}
  i & f & a \\
  b & h & g \\
  c & d & e
@@ -88,5 +88,12 @@ $$\begin{bmatrix}\begin{bmatrix}
  b & h & d \\
  f & c & e \\
  a & g & i
-\end{bmatrix}\end{bmatrix}$$
-La representación matemática del primer sudoku sería algo parecido a esto, 9 cuadrados latinos diferentes, cuyas filas y columnas juntas no pueden tener los mismos elementos, es decir, 9 cuadrados latinos dentro de un cuadrado latino.
+\end{bmatrix}}_\text{Matrices permutadas}\end{bmatrix}}^\text{Cuadrado Latino}$$
+Esto sería el equivalente matemático de un sudoku, y su definición formal sería:
+::: info Descripción matemática de un Sudoku
+Un Sudoku es una matriz $A\in\{1...9\}^{9\times9}$ tal que:
+- Para todo $i$, la fila $A_{i,1},A_{i,2}...A_{i,9}​$ es una permutación de $\{1...9\}$.
+- Para todo $j$, la columna $A_{j,1},A_{j,2}...A_{j,9}​$​ es una permutación de $\{1...9\}$.
+- Para cada bloque 3×3, los 9 elementos dentro forman también una permutación de $\{1...9\}$.
+:::
+Es decir, un cuadrado latino de 9×9 dividido en cuadrados de 3x3 cuyos componentes son una combinación de 9 números.
