@@ -43,7 +43,13 @@ export default defineConfig({
         collapsed: false,
         items: [
           {text: 'Introducción', link: '/sudoku/intro'},
-          {text: 'Resolución', link: '/sudoku/solving'},
+          {text: 'Resolución',
+           collapsed: true,
+            items: [
+              {text: 'Métodos de resolución', link: '/sudoku/solver/solving'},
+              {text: 'Algoritmo de resolución', link: '/sudoku/solver/solving-alg'},
+           ]
+          },
           {text: 'Creación', link: '/sudoku/making'},
         ]
       }

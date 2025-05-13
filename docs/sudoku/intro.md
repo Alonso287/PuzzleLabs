@@ -5,7 +5,7 @@ prev: false
 ## ¿Qué es el Sudoku?
 [Sudoku](https://es.wikipedia.org/wiki/Sudoku) es un juego matemático inventado a finales de la década de 1970 en japón.
 ## ¿Cómo se juega ?
-El objetivo del sudoku es rellenar una cuadrícula de 9x9 celdas, cada una dividida en subcuadrículas de 3x3, con las cifras del 1 al 9. Algunos números ya están rellenados y no se debe repetir el mismo número en la misma fila, columna o subcuadrícula.s
+El objetivo del sudoku es rellenar una cuadrícula de 9x9 celdas, cada una dividida en subcuadrículas de 3x3(bloques), con las cifras del 1 al 9. Algunos números ya están rellenados y no se debe repetir el mismo número en la misma fila, columna o subcuadrícula.s
 
 Si el sudoku está bien planteado, sólo puede tener una solución, y debería tener 17 pistas iniciales, es decir, 17 números ya rellenados como mínimo.
 
@@ -27,7 +27,7 @@ d & a & c & b
 
 Un cuadrado latino está reducido si la primera fila y la primera columna están en orden natural.
 
-La cantidad de números de cuadrados latinos de $n \times n$ No tiene una fórmula sencilla, pero crece increíblemente rápido.
+La cantidad de números de cuadrados latinos de $n \times n$ No tiene una fórmula sencilla, pero crece increíblemente rápido cuando aumentamos $n$. A este fenómeno se le llama explosión combinatoria.
 Como curiosidad, aquí tenéis una tabla con la cantidad de cuadrados latinos y cuadrados latinos reducidos desde $n = 1$ hasta $n = 11$:
 <div style="justify-content: center; display: flex;">
 
@@ -88,7 +88,11 @@ $$\overbrace{\begin{bmatrix}\begin{bmatrix}
  b & h & d \\
  f & c & e \\
  a & g & i
-\end{bmatrix}}_\text{Matrices permutadas}\end{bmatrix}}^\text{Cuadrado Latino}$$
+\end{bmatrix}}\end{bmatrix}}^\text{Cuadrado Latino}_{\text{Matrices permutadas de}\begin{bmatrix}
+ a & b & c \\
+ d & e & f \\
+ g & h & i
+\end{bmatrix}}$$
 Esto sería el equivalente matemático de un sudoku, y su definición formal sería:
 ::: info Descripción matemática de un Sudoku
 Un Sudoku es una matriz $A\in\{1...9\}^{9\times9}$ tal que:
