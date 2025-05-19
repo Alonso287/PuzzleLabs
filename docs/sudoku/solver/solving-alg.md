@@ -62,7 +62,7 @@ Como puedes ver, hay ocasiones en las que nos queda sólo un número candidato, 
 ___
 Pero, qué ocurre si nos quedamos sin candidatos?
 
-### 2. Análisis de parejas y tríos desnudos
+### 2. Análisis de parejas, tríos y cuartetos desnudos
 Veamos este ejemplo:
 <div style="display: flex; justify-content: center;flex-wrap: wrap;">
     <img src="/sudoku/pares.png" alt="Pares" style="max-width: 40%; margin: 10px;">
@@ -71,9 +71,32 @@ Veamos este ejemplo:
 Aquí ya hemos aplicado el primer paso del algoritmo, y todavía nos quedan muchos huecos. ¿Qué hacemos?
 
 La pareja de números que hay resaltada en azul se llama "par desnudo", es decir, es una pareja de números candidatos que comparten la misma unidad, es decir: la misma fila, columna o blloque. 
-Cuando esto ocurre, sabemos que un número va a estar en una casilla y el otro en la otra, y, aunque no sabemos cuál de los dos está en qué casilla, podemos eliminar los dos de la unidad correspondiente, en este caso, del mismo campo. En este caso, eliminamos el 9 del campo resaltado en verde, lo que nos deja con una sola posibilidad.
+Cuando esto ocurre, sabemos que un número va a estar en una casilla y el otro en la otra, y, aunque no sabemos cuál de los dos está en qué casilla, podemos eliminar los dos de la unidad correspondiente, en este caso, del mismo campo. En este caso, eliminamos el 9 del campo resaltado en verde, lo que nos deja con una sola posibilidad, el 1.
+Ahora, veamos este ejemplo:
+<div style="display: flex; justify-content: center;flex-wrap: wrap;">
+    <img src="/sudoku/trios.png" alt="tríos" style="max-width: 40%; margin: 10px;">
+</div>
 
-<!-- https://www.sudokuwiki.org/Naked_Candidates#NP -->
+En el siguiente diagrama existen dos tríos desnudos, es decir, son conjuntos de celdas que pertenecen a la misma unidad y tienen **en total** 3 números candidatos diferentes. Cuando esto ocrurre, podemos eliminar esos números de la misma unidad a la que pertenecen, en este caso son filas.
+El primer trío es el resaltado en verde, y podríamos quitar el número 9 del campo en morado, y el segundo trío es el resaltado en naranja y el resaltado en morado, y podríamos quitar el número 9 de la celda resaltada en rojo.
+Este caso es curioso, ya que si aplicamos un trío, el otro se convierte en una pareja desnuda, pero el resultado es el mismo.
+Ahora veamos el siguiente ejemplo:
+<div style="display: flex; justify-content: center;flex-wrap: wrap;">
+    <img src="/sudoku/cuartetos.png" alt="cuartetos" style="max-width: 40%; margin: 10px;">
+</div>
+
+En este ejemplo, las cuatro celdas resaltadas en verde son cuartetos desnudos, que siguen la misma lógica de los tríos y parejas desnudas.
+En este caso, podemos eliminar el 2 y el 3 de la celda azul.
+No hay nada más allá de los cuartetos, ya que hay 9 números, y que haya un "quinteto", implicaría que hay cuarteto complementario.
+### 3. Descartes
+Ahora veamos este ejemplo:
+<div style="display: flex; justify-content: center;flex-wrap: wrap;">
+    <img src="/sudoku/descarte.png" alt="cuartetos" style="max-width: 40%; margin: 10px;">
+</div>
+Aquí podemos ver que en este bloque se puede escribir un número por descarte, ya que el único posible número donde puede ir el 9 es en la casilla marcada en verde.
+
+
+
 
 
 
