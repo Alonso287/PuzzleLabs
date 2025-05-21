@@ -58,7 +58,14 @@ Tras hacer eso, nos quedaría algo así:
 <div style="display: flex; justify-content: center;flex-wrap: wrap;">
     <img src="/sudoku/candidatos1.png" alt="candidatos" style="max-width: 40%; margin: 10px;">
 </div>
+
 Como puedes ver, hay ocasiones en las que nos queda sólo un número candidato, por lo que podemos rellenarlo, lo que va a causar que se eliminen más candidatos en otras celdas, de hecho este ejemplo se puede resolver entero utilizando este método.
+Este sería el proceso del algoritmo de candidatos en orden:
+1. El programa debe ir escaneando cada celda, y recolectar los números que están en su misma columna, fila y campo.
+1. Después, eliminará cada número que haya encontrado en esos lugares.
+    1. Si sólo se queda con un número, entonces asignará ese número a ese campo, y continuará al siguiente.
+    1. En cambio, si se queda con varios números, saltará al siguiente, y repetirá el proceso.
+1. Este proceso se repetirá hasta que no se puedan rellenar más celdas,y tras ello, imprimirá los resultados.
 ___
 Pero, qué ocurre si nos quedamos sin candidatos?
 
@@ -95,6 +102,27 @@ Ahora veamos este ejemplo:
 </div>
 Aquí podemos ver que en este bloque se puede escribir un número por descarte, ya que el único posible número donde puede ir el 9 es en la casilla marcada en verde.
 
+### 4. Fuerza Bruta
+Es posible que el sudoku se quede con algunos huecos que no se pueden resolver por ninguno de los métodos anteriores, así que tras esto utilizaremos el método de fuerza bruta, o _"brute-force"_.
+La variante de este método que vamos a utilizar es el llamado "búsqueda en profundidad", o _"depth-first search"_, que analiza cada posible "rama" de soluciones hasta el final, antes de pasar a la siguiente, de la siguiente manera:
+<div style="display: flex; justify-content: center;flex-wrap: wrap;">
+    <img src="/sudoku/search.gif" alt="Búsqueda en profundidad" style="max-width: 40%; margin: 10px;">
+</div>
+Aunque esto pueda parecer muy ineficiente, en realidad no lo es tanto, ya que las opciones que quedarán tras resolver el sudoku de forma analítica serían bastantes menos.
+Por ejemplo, el sudoku de los ejemplos anteriores se puede resolver únicamente con los métodos sistemáticos.
+
+## Resumen
+En conclusión, un algoritmo de resolución de sudokus relativamente avanzado tenría los siguientes procesos en el siguiente orden de prioridad:
+1. Análisis de candidatos
+1. Análisis de parejas, tríos y cuartetos desnudos
+1. Descartes
+1. Fuerza Bruta
+
+Lógicamente, tras cada "pasada" de escaneo de celdas se deben reevaluar los candidatos y empezar por el primer método de nuevo.
+
+Sin embargo, el mundo de los sudokus es muy extenso y se han creado sudokus con una dificulad extrema, y eso conlleva la creación de algoritmos de resolución mucho más complejos que incorporan métodos mucho más avanzados.
+
+[Aquí](https://www.sudokuwiki.org/Sudoku.htm) puedes ver un algoritmo de resolución de sudokus extremadamente complejo, que incorpora hasta 39 métodos diferentes.
 
 
 
