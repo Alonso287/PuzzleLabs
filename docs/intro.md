@@ -30,3 +30,14 @@ Todo el proyecto es de código abierto y puedes ver el código fuente en [mi rep
 <div style="display: flex; justify-content: center;">
   <VPTeamMembers size="medium" :members="members" />
 </div>
+
+<div style="display: flex; justify-content: center;">
+```mermaid
+flowchart TD
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+</div>

@@ -119,6 +119,45 @@ En conclusión, un algoritmo de resolución de sudokus relativamente avanzado te
 1. Fuerza Bruta
 
 Lógicamente, tras cada "pasada" de escaneo de celdas se deben reevaluar los candidatos y empezar por el primer método de nuevo.
+Esto significa que el programa funcionaría en bucle hasta que se haya resuelto el sudoku.
+Aquí tenemos un diagrama de flujo que representa el funcionamiento del programa:
+
+<pre class="mermaid">
+    graph LR
+    A --- B
+    B-->C[fa:fa-ban forbidden]
+    B-->D(fa:fa-spinner);
+</pre>
+<script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+</script>
+
+```mermaid
+flowchart TD
+    n1(["Inicio"]) --> n2["Introducción de datos"]
+    n2 --> n3["Procesamiento y almacenamiento de los datos"]
+    n3 --> n4["Análisis de candidatos"]
+    n4 --> n5["Se pueden resolver celdas por candidatos únicos?"]
+    n5 -- No --> n6["Se pueden resolver celdas por parejas, tríos o cuartetos desnudos?"]
+    n5 -- Sí --> n7["Rellenar"]
+    n7 --> n10["Está el sudoku relleno?"]
+    n6 -- Sí --> n7
+    n6 -- No --> n8["Se pueden resolver celdas  por descarte?"]
+    n8 -- Sí --> n7
+    n8 -- No --> n9["Resolver por fuerza bruta"]
+    n9 --> n10
+    n10 -- Sí --> n11["Imprimir los datos"]
+    n11 --> n12["Final"]
+    n10 -- No --> n4
+    n2@{ shape: manual-input}
+    n3@{ shape: proc}
+    n5@{ shape: decision}
+    n6@{ shape: diam}
+    n10@{ shape: decision}
+    n8@{ shape: diam}
+    n11@{ shape: doc}
+    n12@{ shape: terminal}
+```
 
 Sin embargo, el mundo de los sudokus es muy extenso y se han creado sudokus con una dificulad extrema, y eso conlleva la creación de algoritmos de resolución mucho más complejos que incorporan métodos mucho más avanzados.
 
@@ -130,7 +169,7 @@ Sin embargo, el mundo de los sudokus es muy extenso y se han creado sudokus con 
 
 
 
-
+<!-- https://www.mermaidchart.com/play?utm_source=mermaid_live_editor&utm_medium=toggle#pako:eNqFkrtOw0AQRX9l5AokUpCnScFDoqFBiNARimF3Ihatd619gCDKx_ABqeho_WOMX7JJENiV79x7dHfH60RYSck8WWn7Kp7QBbi7XBrgxxwf3C-TK6OEssvk4RAGg1Mww0oLzsoohCo-DUgCicF69jTBYW0dsfXGWUEeM0UmWHgD1BkKMq3AWW39bn5U58ecvzDFh1Ze-dIq0Ei14x3X3gl7FwR5JEkGHHmrX8iBIC3RQ25dLwzFFx_K-rOOMmEKXNuaNf2XlaOjZ_RHEFyxZaAFEfnqqIRL8ibKffqi2Nb4GeNvSWu-Bdd5Zs2Zm8_pz0hfbWumf9asenIXUfbqdUl_BacNuFZPqoYNr-SsIrl3hEcXA1aodtHna_BPmNMcMjQR9UCZPIZNu8dunPN_0MqTTpYkeLnWtKNpb6Qwa-V0Ty7fZPMNDK7igw -->
 
 
 
