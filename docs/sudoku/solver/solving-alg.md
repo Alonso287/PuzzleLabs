@@ -122,15 +122,6 @@ Lógicamente, tras cada "pasada" de escaneo de celdas se deben reevaluar los can
 Esto significa que el programa funcionaría en bucle hasta que se haya resuelto el sudoku.
 Aquí tenemos un diagrama de flujo que representa el funcionamiento del programa:
 
-<pre class="mermaid">
-    graph LR
-    A --- B
-    B-->C[fa:fa-ban forbidden]
-    B-->D(fa:fa-spinner);
-</pre>
-<script type="module">
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-</script>
 
 ```mermaid
 flowchart TD
