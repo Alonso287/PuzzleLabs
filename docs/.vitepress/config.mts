@@ -12,6 +12,11 @@ export default withMermaid(
     lastUpdated: true,  
     cleanUrls: true,
     lang: 'es-ES',
+
+    mermaid: {
+      theme: "neutral",
+    },
+
     themeConfig: {
 
       // https://vitepress.dev/reference/default-theme-config
@@ -102,8 +107,8 @@ export default withMermaid(
       siteTitle: false,
 
       footer: {
-        message: 'PuzzleLabs',
-        copyright: 'Copyright © 2025 Alonso Navarro'
+        message: 'Contenido bajo  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a> · Código bajo <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener noreferrer">AGPL-3.0</a>',
+        copyright: 'PuzzleLabs · © 2025 Alonso Navarro'
       },
 
       editLink:{
