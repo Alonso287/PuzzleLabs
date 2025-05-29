@@ -60,7 +60,7 @@ export default withMermaid(
                 {text: 'Práctica', link: '/sudoku/solver/solving-code'},
             ]
             },
-            {text: 'Creación', link: '/sudoku/making'},
+            {text: 'Creación', link: '/sudoku/maker/making'},
           ]
         }
       ],
