@@ -55,8 +55,9 @@ export default withMermaid(
             {text: 'Resolución',
             collapsed: true,
               items: [
-                {text: 'Métodos de resolución', link: '/sudoku/solver/solving'},
-                {text: 'Algoritmo de resolución', link: '/sudoku/solver/solving-alg'},
+             /* {text: 'Métodos de resolución', link: '/sudoku/solver/solving'}, */
+                {text: 'Teoría', link: '/sudoku/solver/solving-alg'},
+                {text: 'Práctica', link: '/sudoku/solver/solving-code'},
             ]
             },
             {text: 'Creación', link: '/sudoku/making'},
@@ -137,6 +138,14 @@ export default withMermaid(
       langMenuLabel: 'Seleccionar idioma',
       skipToContentLabel: 'Saltar al contenido',
       outlineTitle: 'En esta página',
+
+      notFound: {
+      title: 'PÁGINA NO ENCONTRADA',
+      quote: "Esta página no se ha encontrado o ha sido borrada. Prueba a revisar la URL.", // set to '' to hide
+      linkLabel: 'volver al inicio', // aria-label
+      linkText: 'Volver al inicio',
+      code: '404'
+     }
     },
 
     markdown: {
