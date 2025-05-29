@@ -3,4 +3,3 @@ docs/.vitepress/cache/
 docs/.vitepress/dist/
 .vscode/
 .vercel
-*.py

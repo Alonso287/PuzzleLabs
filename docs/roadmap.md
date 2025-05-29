@@ -35,3 +35,6 @@ Puedes ver el changelog completo en [GitHub](https://github.com/Alonso287/Puzzle
 ::: timeline 9.0
 - **Ajedrez**
 :::
+::: timeline 10.0
+- **Tetris**
+:::

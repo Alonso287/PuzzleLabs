@@ -13,6 +13,7 @@ export default {
   ...DefaultTheme,
   Layout: Layout,
   enhanceApp: (ctx) => {
+    DefaultTheme.enhanceApp?.(ctx);
     vitepressNprogress(ctx);
   }
 }

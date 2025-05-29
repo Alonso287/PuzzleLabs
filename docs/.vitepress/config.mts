@@ -57,7 +57,7 @@ export default withMermaid(
               items: [
              /* {text: 'Métodos de resolución', link: '/sudoku/solver/solving'}, */
                 {text: 'Teoría', link: '/sudoku/solver/solving-alg'},
-                {text: 'Práctica', link: '/sudoku/solver/solving-code'},
+                {text: 'Práctica🚧', link: '/sudoku/solver/solving-code'},
             ]
             },
             {text: 'Creación', link: '/sudoku/maker/making'},
