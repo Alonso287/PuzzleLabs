@@ -8,7 +8,7 @@ ___
 
 Sin embargo, tras pensarlo un tiempo, podemos ver que podemos reutilizar el código que se encarga de analizar los números, y añadirle un factor aleatorio:
 
-En la [página anterior](sudoku/solver/solving-alg#_1-analisis-de-candidatos) hemos visto que la parte del programa que se encarga de buscar los números candidatos funciona de la siguiente manera:
+En la [página anterior](puzzlelabs.vercel.app/sudoku/solver/solving-alg#_1-analisis-de-candidatos) hemos visto que la parte del programa que se encarga de buscar los números candidatos funciona de la siguiente manera:
 >Este sería el proceso del algoritmo de candidatos en orden:
 >1. El programa debe ir escaneando cada celda, y recolectar los números que están en su misma columna, fila y campo.
 >1. Después, eliminará cada número que haya encontrado en esos lugares.
