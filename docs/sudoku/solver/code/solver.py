@@ -382,6 +382,67 @@ def buscar_singles_ocultos_en_unidad(tablero, candidatos, celdas, nombre_unidad)
 
     return cambio
 
+def buscar_pares_ocultos_en_unidad(celdas, nombre_unidad):
+    """
+    Busca pares ocultos en una unidad (fila, columna o bloque).
+    """
+    cambio = False
+    from collections import defaultdict
+    # Mapeamos candidato -> conjunto de índices donde aparece
+    candidato_a_indices = defaultdict(set)
+    for idx, celda in enumerate(celdas):
+        for candidato in celda:
+            candidato_a_indices[candidato].add(idx)
+    # Buscamos pares de candidatos que aparezcan exactamente en las mismas dos celdas
+    candidatos = list(candidato_a_indices.keys())
+    for i in range(len(candidatos)):
+        for j in range(i+1, len(candidatos)):
+            indices_i = candidato_a_indices[candidatos[i]]
+            indices_j = candidato_a_indices[candidatos[j]]
+            # Verificar si ambos aparecen en las mismas dos celdas
+            if indices_i == indices_j and len(indices_i) == 2:
+                # Pares ocultos encontrados
+                for idx in indices_i:
+                    celda = celdas[idx]
+                    antes = set(celda)
+                    celda.intersection_update({candidatos[i], candidatos[j]})
+                    if celda != antes:
+                        cambio = True
+                if cambio:
+                    print(f"Par oculto encontrado en {nombre_unidad}: {sorted([candidatos[i], candidatos[j]])}")
+    return cambio
+
+def aplicar_pares_ocultos(tablero, candidatos):
+    """
+    Aplica la técnica de pares ocultos en filas, columnas y bloques.
+    """
+    cambio_realizado = False
+    # Filas
+    for fila in range(9):
+        cambio_realizado |= buscar_pares_ocultos_en_unidad(
+            [candidatos[fila][col] for col in range(9)],
+            f"Fila {fila+1}"
+        )
+    # Columnas
+    for col in range(9):
+        cambio_realizado |= buscar_pares_ocultos_en_unidad(
+            [candidatos[fila][col] for fila in range(9)],
+            f"Columna {col+1}"
+        )
+    # Bloques
+    for bloque_fila in range(3):
+        for bloque_col in range(3):
+            celdas = []
+            for r in range(3):
+                for c in range(3):
+                    fila = bloque_fila * 3 + r
+                    col = bloque_col * 3 + c
+                    celdas.append(candidatos[fila][col])
+            cambio_realizado |= buscar_pares_ocultos_en_unidad(
+                celdas,
+                f"Bloque ({bloque_fila+1},{bloque_col+1})"
+            )
+    return cambio_realizado
 
 def main():
     tablero = leer_tablero()
@@ -392,11 +453,12 @@ def main():
     while True:
         cambio = False
         print(f"\nIteración {paso_actual}")
-        cambio |= aplicar_candidato_unico(tablero, candidatos)
-        cambio |= aplicar_pares_desnudos(tablero, candidatos)
-        cambio |= aplicar_conjuntos_desnudos(tablero, candidatos, 3)  # Tríos desnudos
-        cambio |= aplicar_conjuntos_desnudos(tablero, candidatos, 4)  # Cuartetos desnudos
+        cambio |= aplicar_candidato_unico(tablero, candidatos)  # Candidatos únicos
+        cambio |= aplicar_pares_desnudos(tablero, candidatos) # Pares desnudos
+        cambio |= aplicar_conjuntos_desnudos(tablero, candidatos, 3) # Tríos desnudos
+        cambio |= aplicar_conjuntos_desnudos(tablero, candidatos, 4) # Cuartetos desnudos
         cambio |= aplicar_singles_ocultos(tablero, candidatos) # Singles ocultos
+        cambio |= aplicar_pares_ocultos(tablero, candidatos) # Pares ocultos
         if not cambio:
             break 
         paso_actual += 1
