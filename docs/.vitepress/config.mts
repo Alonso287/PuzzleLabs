@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress';
 import timeline from "vitepress-markdown-timeline";
 import { withMermaid } from 'vitepress-plugin-mermaid';
+import { vitepressPythonEditor } from 'vitepress-python-editor/vite-plugin'
 
 export default withMermaid(
 
@@ -212,5 +213,11 @@ export default withMermaid(
         }
       ],
     ],
+
+    vite: {
+    plugins: [
+      vitepressPythonEditor(),
+    ],
+  },
   })
 )

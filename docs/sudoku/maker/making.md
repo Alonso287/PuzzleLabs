@@ -22,6 +22,7 @@ A este algoritmo le haremos las siguientes modificaciones para que se encargue d
 - En el segundo
 
 
-<SudokuSolver />
+```python:line-numbers
 
-<SudokuRunner />
+```
+<Editor id="i-should-be-unique" />
