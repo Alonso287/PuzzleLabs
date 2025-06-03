@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@catppuccin/vitepress": "^0.1.2",
+    "prismjs": "^1.30.0",
+    "pyodide": "^0.27.6",
     "vitepress-markdown-timeline": "^1.2.2"
   }
 }
