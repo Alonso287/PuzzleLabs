@@ -16,29 +16,36 @@ Como el programa se va a encargar de resolver sudokus, creo que la manera más f
 Por ejemplo, si queremos insertar el siguiente sudoku, escribiremos lo siguiente:
 ```ansi
 Datos por filas:
-> 5
-> 3
-> 0
-> 0
-> 7
-> 0
+> 530070000
+> 600195000
+> 098000060
+> 800060003
+> 400803001
+> 700020006
 ...
 ```
 Escribiremos 0 si la celda está vacía, y los datos serán almacenados en una matriz de Python, básicamente una lista con listas.
 Un ejemplo de código sería este:
-```python
-filas = int(input("filas: "))
-columnas = int(input("columnas: "))
+```python:line-numbers
+filas = int(input("Filas: "))
+columnas = int(input("Columnas: "))
 
 matrix = [] 
 print("Datos por filas:")
 
 for i in range(filas):   
-    fila = []
-    for j in range(columnas):
-        fila.append(int(input()))    # el usuario introduc las filas
-    matrix.append(fila)  # para añadir filas
+    while True:
+        # Pedimos al usuario que ingrese los números para la fila, sin espacios
+        fila_str = input(f"Ingrese los {columnas} números para la fila {i+1} (sin espacios): ")
+        if len(fila_str) == columnas:  # Verificamos que la longitud de la cadena coincida con el número de columnas
+            # Convertimos la cadena en una lista de enteros
+            fila = [int(c) for c in fila_str]
+            matrix.append(fila)
+            break
+        else:
+            print(f"Error: Debes ingresar exactamente {columnas} números, sin espacios.")
 
+# Mostrar la matriz
 print("\nLa matriz es:")
 
 for i in range(filas):
@@ -46,14 +53,17 @@ for i in range(filas):
         print(matrix[i][j], end=" ")
     print()
 ```
+<Editor id="Matriz"/>
+
 ## Algoritmo de resolución
 Para que el programa resuelva el sudoku, debemos establecer un orden de ejecución de los diferentes métodos de resolución.
 Todos ellos se basan en encontrar los números candidatos, es decir, eliminar los números que estén en la misma fila, columna o bloque, o campo que estemos analizando.
 Por lo tanto, el primer paso será el análisis de candidatos.
+
 ### 1. Análisis de candidatos.
 Para analizar los candidatos de una celda, debemos asumir que son candidatos todos los posibles números, es decir, del 1 al 9.
 Después, escanearemos la fila, columna y campo en la que está el número, y eliminaremos los números que encontremos. 
-Por ejemplo, para el primmer campo vacío, en a3, eliminaríamos los números 5,3,7,6,9, y 8, y así sucesivamente con todos los números.
+Por ejemplo, para el primer campo vacío, en a3, eliminaríamos los números 5,3,7,6,9, y 8, y así sucesivamente con todos los números.
 Tras hacer eso, nos quedaría algo así:
 <div style="display: flex; justify-content: center;flex-wrap: wrap;">
     <img src="/sudoku/candidatos1.png" alt="candidatos" style="max-width: 40%; margin: 10px;">

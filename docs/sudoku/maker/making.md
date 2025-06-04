@@ -22,18 +22,6 @@ A este algoritmo le haremos las siguientes modificaciones para que se encargue d
 - En el segundo
 
 ```python:line-numbers
-name = input("What's your name? ")
-
-if name:
-    print(f"Hello {name}!")
-else:
-    print(f"Hello stranger!")
-```
-<Editor id="hello" />
-
-
-
-```python:line-numbers
 def leer_tablero():
     """
     Lee un tablero de Sudoku de 9 filas desde consola y lo devuelve como una lista de listas.
