@@ -31,7 +31,7 @@ export default withMermaid(
             { text: 'Changelog', link: 'https://github.com/Alonso287/PuzzleLabs/commits/main/'},
             { text: 'Local', link: 'http://localhost:5173', target: '_self' },
             { text: 'Vercel', link: 'https://puzzlelabs.vercel.app/', target:'_self'},
-            { text: 'Netlify', link: 'https://puzzlelabs.netilify.app/', target:'_self'}
+            { text: 'Netlify', link: 'https://puzzlelabs.netlify.app/', target:'_self'}
           ]
         },
       ],
