@@ -21,6 +21,17 @@ A este algoritmo le haremos las siguientes modificaciones para que se encargue d
 - Tomaremos el primer paso, que se encarga de buscar los números que **no** pueden estar en esa casilla, ya que están en su misma columna, fila o bloque.
 - En el segundo
 
+```python:line-numbers
+name = input("What's your name? ")
+
+if name:
+    print(f"Hello {name}!")
+else:
+    print(f"Hello stranger!")
+```
+<Editor id="hello" />
+
+
 
 ```python:line-numbers
 def leer_tablero():
