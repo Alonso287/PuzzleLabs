@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@catppuccin/vitepress": "^0.1.2",
+    "pyodide": "^0.27.6",
     "vitepress-markdown-timeline": "^1.2.2",
     "vitepress-python-editor": "^1.3.4"
   }
