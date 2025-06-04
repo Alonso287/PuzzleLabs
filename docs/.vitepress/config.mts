@@ -215,9 +215,9 @@ export default withMermaid(
     ],
 
     vite: {
-    plugins: [
-      vitepressPythonEditor(),
-    ],
-  },
+      plugins: [
+        vitepressPythonEditor({ assetsDir: 'docs/.vitepress/dist/assets' }),
+      ],
+    },
   })
 )
