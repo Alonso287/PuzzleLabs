@@ -21,20 +21,14 @@ Puedes ver el changelog completo en [GitHub](https://github.com/Alonso287/Puzzle
 - **Numberlink**
 :::
 ::: timeline 5.0
-- **Rush Hour**
+- **Puzles Matemáticos**
 :::
 ::: timeline 6.0
-- **Rompecabezas deslizante**
+- **Klotski/Rush Hour/Puzles deslizantes**
 :::
 ::: timeline 7.0
-- **Klotski**
-:::
-::: timeline 8.0
-- **Puzles matemáticos**
-:::
-::: timeline 9.0
 - **Ajedrez**
 :::
-::: timeline 10.0
+::: timeline 8.0
 - **Tetris**
 :::

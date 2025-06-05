@@ -64,7 +64,56 @@ export default withMermaid(
             },
             {text: 'Creación', link: '/sudoku/maker/making'},
           ]
-        }
+        },
+        {
+          text: 'Buscaminas',
+          collapsed: true,
+          items: [
+            {text: 'Próximamente...', link: 'roadmap'},
+          ]
+        },
+        {
+          text: 'Laberinto',
+          collapsed: true,
+          items: [
+            {text: 'Próximamente...', link: 'roadmap'},
+          ]
+        },
+        {
+          text: 'Numberlink',
+          collapsed: true,
+          items: [
+            {text: 'Próximamente...', link: 'roadmap'},
+          ]
+        },
+        {
+          text: 'Puzles Matemáticos',
+          collapsed: true,
+          items: [
+            {text: 'Próximamente...', link: 'roadmap'},
+          ]
+        },
+        {
+          text: 'Klotski/Rush Hour/Puzles deslizantes',
+          collapsed: true,
+          items: [
+            {text: 'Próximamente...', link: 'roadmap'},
+          ]
+        },
+        {
+          text: 'Ajedrez',
+          collapsed: true,
+          items: [
+            {text: 'Próximamente...', link: 'roadmap'},
+          ]
+        },
+        {
+          text: 'Tetris',
+          collapsed: true,
+          items: [
+            {text: 'Próximamente...', link: 'roadmap'},
+          ]
+        },
       ],
 
       socialLinks: [
