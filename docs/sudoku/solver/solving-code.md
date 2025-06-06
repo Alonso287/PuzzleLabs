@@ -217,7 +217,7 @@ def validar_tablero(tablero):
 
 Para calcular los candidatos iniciales para cada celda, crearemos una función `calcular_candidatos`:
 
-´´´python
+```python
 def calcular_candidatos(tablero):
     """
     Calcula los candidatos iniciales para cada celda.
@@ -243,7 +243,7 @@ def calcular_candidatos(tablero):
                         if (r, c) != (fila, col):
                             candidatos[r][c].discard(num)
     return candidatos
-´´´
+```
 - Primero inicializaremos `candidatos` como una matriz 2D, donde cada elemento de esa matriz contiene los números del 1 al 9, para asegurar que todas las celdas del sudoku empiezan con todos los candidatos posibles.
 - En el siguiente paso, recorremos todas las celdas del tablero, y dentro de esos bucles, obtenemos el número en la celda correspondiente.
 - Después, si la celda tiene un número distinto de 0, haremos lo siguiente:
