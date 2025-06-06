@@ -209,8 +209,72 @@ def validar_tablero(tablero):
        - Para cada bloque, recorremos sus 3 filas y 3 columnas. Esto nos da un total de 9 celdas por subcuadro.
        - La fórmula ``tablero[bloque_fila*3 + r][bloque_col*3 + c]`` nos da la celda exacta dentro del tablero.
          - ``bloque_fila*3 + r``: calcula la fila absoluta dentro del tablero.
-         - b``loque_col*3 + c``: calcula la columna absoluta dentro del tablero.
+         - ``bloque_col*3 + c``: calcula la columna absoluta dentro del tablero.
          - Si el valor en esa celda no es 0 (es decir, no es un hueco), se agrega a la lista bloque.
-Columnas: Se recorre cada columna, se extraen los números distintos de cero y se valida que no haya duplicados utilizando un set.
 
-Subcuadros 3x3 (Bloques): Se recorre el tablero en bloques de 3x3, se extraen los números distintos de cero de cada bloque y se verifica que no haya duplicados utilizando un set.
+# Cálculos de candidatos
+## Cálculo de candidatos
+
+Para calcular los candidatos iniciales para cada celda, crearemos una función `calcular_candidatos`:
+
+´´´python
+def calcular_candidatos(tablero):
+    """
+    Calcula los candidatos iniciales para cada celda.
+    """
+    candidatos = [[set(range(1, 10)) for _ in range(9)] for _ in range(9)]
+    for fila in range(9):
+        for col in range(9):
+            num = tablero[fila][col]
+            if num != 0:
+                candidatos[fila][col] = {num}
+                # Eliminar de fila
+                for k in range(9):
+                    if k != col:
+                        candidatos[fila][k].discard(num)
+                # Eliminar de columna
+                for k in range(9):
+                    if k != fila:
+                        candidatos[k][col].discard(num)
+                # Eliminar de bloque
+                start_row, start_col = 3 * (fila // 3), 3 * (col // 3)
+                for r in range(start_row, start_row + 3):
+                    for c in range(start_col, start_col + 3):
+                        if (r, c) != (fila, col):
+                            candidatos[r][c].discard(num)
+    return candidatos
+´´´
+- Primero inicializaremos `candidatos` como una matriz 2D, donde cada elemento de esa matriz contiene los números del 1 al 9, para asegurar que todas las celdas del sudoku empiezan con todos los candidatos posibles.
+- En el siguiente paso, recorremos todas las celdas del tablero, y dentro de esos bucles, obtenemos el número en la celda correspondiente.
+- Después, si la celda tiene un número distinto de 0, haremos lo siguiente:
+    - Primero, establecemos `num` como el número que está en esa celda.
+    - Después, recorreremos todas las celdas de las filas, columnas y bloques a los que pertenece esa celda(Excepto la propia celda de la que hemos asignado `num`), y eliminaremos del elemento de la matriz `candidatos` el número `num` utilizando `.discard(num)`.
+        - Para recorrer la fila, se hace un bucle `for` que se repite 9 veces, descartando `num` de cada celda.
+        - Para recorrer la columna, se utiliza un método pareceido a cuando verificábamos el tablero, creando un bucle con `k` que se repite 9 veces, y eliminando `num` de cada celda con posición `[k, col]`.
+        - Para recorrer el bloque, utilizaremos dos variables, `start_row` y `start_col`, que serán asignadas como `3 * (fila // 3)` y `3 * (col // 3)`, respectivamente. Estas dos variables sirven para calcular la cordenada superior izquierda del bloque 3x3 al que pertenece la celda actual. Tras ello, con un bucle, se recorrerán las filas y las columnas, pero de 3 en 3, en vez de hacerlo de 9 en 9, empezando desde las coordenadas que hemos calculado antes.
+- Finalmente, devolveremos la lista `candidatos` con todos los posibles candidatos en cada celda. Las siguientes funciones utilizarán técnicas heurísticas para eliminar más números de esta matriz de candidatos.
+
+## Impresión de candidatos
+
+Para imprimir los candidatos, utilizaremos una función parecida a `imprimir_tablero`, ligeramente modificada para imprmir correctamente los distintos candidatos:
+
+```python
+def imprimir_candidatos(candidatos, paso_actual):
+    """
+    Imprime el tablero con los candidatos de cada celda.
+    """
+    print("\n" + "=" * 40)
+    print(f"Paso: {paso_actual}")
+    print("=" * 40)
+    for fila in range(9):
+        fila_str = ""
+        for col in range(9):
+            celd = candidatos[fila][col]
+            contenido = ''.join(str(x) for x in sorted(celd))
+            fila_str += f"{contenido:<9}"
+            if (col + 1) % 3 == 0 and col != 8:
+                fila_str += "| "
+        print(fila_str)
+        if (fila + 1) % 3 == 0 and fila != 8:
+            print("-" * 40)
+```
