@@ -25,7 +25,7 @@ export default withMermaid(
       nav: [
         { text: 'Inicio', link: '/' },
         { text: 'Acerca de ', link: 'about'},
-        { text: '0.8',
+        { text: '1.0',
           items: [
             { text: 'Roadmap', link: 'roadmap'},
             { text: 'Changelog', link: 'https://github.com/Alonso287/PuzzleLabs/commits/main/'},
@@ -59,10 +59,16 @@ export default withMermaid(
               items: [
              /* {text: 'Métodos de resolución', link: '/sudoku/solver/solving'}, */
                 {text: 'Teoría', link: '/sudoku/solver/solving-alg'},
-                {text: 'Práctica🚧', link: '/sudoku/solver/solving-code'},
+                {text: 'Práctica', link: '/sudoku/solver/solving-code'},
             ]
             },
-            {text: 'Creación', link: '/sudoku/maker/making'},
+            {text: 'Creación',
+            collapsed: true,
+              items: [
+                {text: 'Teoría', link: '/sudoku/maker/making-alg'},
+                {text: 'Práctica', link: '/sudoku/maker/making-code'},
+            ]
+            },
           ]
         },
         {
@@ -196,7 +202,9 @@ export default withMermaid(
       linkLabel: 'volver al inicio', // aria-label
       linkText: 'Volver al inicio',
       code: '404'
-     }
+     },
+
+     outline: 'deep',
     },
 
     markdown: {
@@ -206,7 +214,7 @@ export default withMermaid(
         warningLabel: 'Atención',
         dangerLabel: 'Peligro',
         infoLabel: 'Información',
-        detailsLabel: 'Detalles'
+        detailsLabel: 'Detalles',
       },
       image: {
         // image lazy loading is disabled by default
@@ -269,5 +277,6 @@ export default withMermaid(
         vitepressPythonEditor({ assetsDir: 'docs/.vitepress/dist/assets' }),
       ],
     },
-  })
+  },
+ )
 )

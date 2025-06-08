@@ -580,11 +580,11 @@ def resolver_sudoku_fuerza_bruta(tablero_previo_bt):
     tiempo_tardado = end_time - start_time
 
     if tiene_solucion:
-        return tablero_copia, stats['iteraciones'], stats['max_profundidad'], tiempo_tardado
+        return tablero_copia, stats['iteraciones'], stats['max_profundidad'], tiempo_tardado, stats['retrocesos']
     else:
         # Si no hay solución, tablero_previo_bt no fue modificado.
         # Devolvemos None para el tablero, y las estadísticas del intento fallido.
-        return None, stats['iteraciones'], stats['max_profundidad'], tiempo_tardado
+        return None, stats['iteraciones'], stats['max_profundidad'], tiempo_tardado, stats['retrocesos']
 
 #############################################################################################################################################################
 
@@ -663,11 +663,12 @@ def main():
         
         # Llamar a la función de backtracking. Esta recibe el estado actual del tablero
         # (modificado por heurísticas) y trabaja sobre una copia.
-        tablero_solucion_bt, iter_bt, prof_bt, tiempo_bt = resolver_sudoku_fuerza_bruta(tablero_actual)
+        tablero_solucion_bt, iter_bt, prof_bt, tiempo_bt, retrocesos_bt = resolver_sudoku_fuerza_bruta(tablero_actual)
 
         print(f"Proceso de Backtracking finalizado en {tiempo_bt:.4f} segundos.")
         print(f"  Iteraciones (llamadas recursivas): {iter_bt}")
         print(f"  Profundidad máxima alcanzada: {prof_bt}")
+        print(f"  Total de retrocesos: {retrocesos_bt}")
 
         if tablero_solucion_bt:
             print("¡Sudoku Resuelto con backtracking!")

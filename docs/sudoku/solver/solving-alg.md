@@ -1,11 +1,7 @@
-::: warning **ATENCIÓN**    
-**Todavía no he aprendido a programar, así que el contenido de esta parte de la guía es puramente teórico, y puede tener cambios en la práctica.**
-**La guía será actualizada con código real en Python tan pronto como aprenda a programar**
-:::
 # Creación de un algoritmo de resolución de sudokus
 Ahora que conocemos el juego y sus formas de resolverlo en profundidad, tenemos que intentar crear un algoritmo que pueda resolver sudokus de manera eficiente.
 He elegido Python como lenguaje de programación debido a su facilidad de uso.
-## Inserción de los datos
+# Inserción de los datos
 Lógicamente, para que el programa funcione, tenemos que averiguar un método eficiente para insertar nuestros datos.
 
 Como el programa se va a encargar de resolver sudokus, creo que la manera más fácil de insertar el problema en el programa es que vaya preguntando por el número que está en cada celda.
@@ -55,12 +51,12 @@ for i in range(filas):
 ```
 <Editor id="Matriz"/>
 
-## Algoritmo de resolución
+# Algoritmo de resolución
 Para que el programa resuelva el sudoku, debemos establecer un orden de ejecución de los diferentes métodos de resolución.
 Todos ellos se basan en encontrar los números candidatos, es decir, eliminar los números que estén en la misma fila, columna o bloque, o campo que estemos analizando.
 Por lo tanto, el primer paso será el análisis de candidatos.
 
-### 1. Análisis de candidatos.
+## 1. Análisis de candidatos.
 Para analizar los candidatos de una celda, debemos asumir que son candidatos todos los posibles números, es decir, del 1 al 9.
 Después, escanearemos la fila, columna y campo en la que está el número, y eliminaremos los números que encontremos. 
 Por ejemplo, para el primer campo vacío, en a3, eliminaríamos los números 5,3,7,6,9, y 8, y así sucesivamente con todos los números.
@@ -79,7 +75,7 @@ Este sería el proceso del algoritmo de candidatos en orden:
 ___
 Pero, qué ocurre si nos quedamos sin candidatos?
 
-### 2. Análisis de parejas, tríos y cuartetos desnudos
+## 2. Análisis de parejas, tríos y cuartetos desnudos
 Veamos este ejemplo:
 <div style="display: flex; justify-content: center;flex-wrap: wrap;">
     <img src="/sudoku/pares.png" alt="Pares" style="max-width: 40%; margin: 10px;">
@@ -105,14 +101,14 @@ Ahora veamos el siguiente ejemplo:
 En este ejemplo, las cuatro celdas resaltadas en verde son cuartetos desnudos, que siguen la misma lógica de los tríos y parejas desnudas.
 En este caso, podemos eliminar el 2 y el 3 de la celda azul.
 No hay nada más allá de los cuartetos, ya que hay 9 números, y que haya un "quinteto", implicaría que hay cuarteto complementario.
-### 3. Descartes
+## 3. Descartes
 Ahora veamos este ejemplo:
 <div style="display: flex; justify-content: center;flex-wrap: wrap;">
     <img src="/sudoku/descarte.png" alt="cuartetos" style="max-width: 40%; margin: 10px;">
 </div>
 Aquí podemos ver que en este bloque se puede escribir un número por descarte, ya que el único posible número donde puede ir el 9 es en la casilla marcada en verde.
 
-### 4. Fuerza Bruta
+## 4. Fuerza Bruta
 Es posible que el sudoku se quede con algunos huecos que no se pueden resolver por ninguno de los métodos anteriores, así que tras esto utilizaremos el método de fuerza bruta, o _"brute-force"_.
 La variante de este método que vamos a utilizar es el llamado "búsqueda en profundidad", o _"depth-first search"_, que analiza cada posible "rama" de soluciones hasta el final, antes de pasar a la siguiente, de la siguiente manera:
 <div style="display: flex; justify-content: center;flex-wrap: wrap;">
@@ -121,7 +117,7 @@ La variante de este método que vamos a utilizar es el llamado "búsqueda en pro
 Aunque esto pueda parecer muy ineficiente, en realidad no lo es tanto, ya que las opciones que quedarán tras resolver el sudoku de forma analítica serían bastantes menos.
 Por ejemplo, el sudoku de los ejemplos anteriores se puede resolver únicamente con los métodos sistemáticos.
 
-## Resumen
+# Resumen
 En conclusión, un algoritmo de resolución de sudokus relativamente avanzado tenría los siguientes procesos en el siguiente orden de prioridad:
 1. Análisis de candidatos
 1. Análisis de parejas, tríos y cuartetos desnudos
