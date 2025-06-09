@@ -270,6 +270,12 @@ export default withMermaid(
           href: '/favicon/site.webmanifest'
         }
       ],
+      [
+        'link',
+        { rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap' 
+         }
+      ]
     ],
 
     vite: {
