@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
 :root {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient( 120deg, #209fb5 30%, #74c7ec );
@@ -19,8 +21,6 @@
   filter:drop-shadow(-2px 4px 6px rgba(0,0,0,.2));
   padding:18px
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
 :root {
   --vp-font-family-mono: "Fira Code";

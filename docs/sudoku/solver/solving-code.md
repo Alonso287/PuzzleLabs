@@ -5,7 +5,7 @@ ___
 
 El código se dividirá en diferentes funciones o módulos, uno para cada algoritmo o característica del programa.
 
-# Introducción y almacenamiento de datos
+## Introducción y almacenamiento de datos
 Empezaremos por la primera función, que llamaremos `leer_tablero()`:
 Se encargará de recibir cadenas de texto en un formato específico, que luego "traduciremos" y almacenaremos como una matriz 2D:
 Utilizaremos dos métodos diferentes, según la ocasión:
@@ -29,7 +29,7 @@ tablero = [
 ]
 ```
 
-## Introducción de datos por filas
+### Introducción de datos por filas
 Para almacenar los datos por filas, crearemos el siguiente programa:
 ```python
 def leer_tablero():
@@ -80,7 +80,7 @@ def validar_fila(fila):
     numeros = [num for num in fila if num != 0]
     return len(numeros) == len(set(numeros))
 ```
-## Introducción de datos como una única cadena
+### Introducción de datos como una única cadena
 Una manera muy rápida y cómoda de compartir tableros de Sudoku es con una cadena de 81 caracteres, que representan las diferentes celdas de izquierda a derecha y de arriba a abajo, con "." para las celdas vacías.
 Por lo tanto, además de poder introducir los datos por filas, también tendremos la opción de introducirlo todo como una cadena:
 ```python
@@ -129,7 +129,7 @@ def leer_tablero():
      - Para obtener el número correcto de cada fila, se toma la celda correspondiente de la cadena.
 -  Después, se llama a la función `validar_tablero`, que se encargará de verificar si el tablero es correcto.
 - Por último, se imprimirá el tablero y se preguntará al usuario si es correcto. Si el tablero es incorrecto, el bucle entero vuelve a empezar.
-## Impresión del tablero
+### Impresión del tablero
 Ya hemos decidido que el tablero va a consistir de una matriz 2D, es decir, una lista de listas, así que tenemos que escribir un código que lea esta variable e imprima el tablero correctamente.
 Para ello, crearemos un bucle que vaya imprimiendo cada elemento (fila), y extraiga los elementos que contiene (celdas independientes).
 El resultado sería este:
@@ -159,7 +159,7 @@ def imprimir_tablero(tablero):
 - Después de procesar cada fila, se imprime la cadena construida.
 - Cada 3 filas se imprime una línea horizontal separadora.
 - Por último, se imprime una línea decorativa final.
-## Verificación del tablero
+### Verificación del tablero
 Para verificar que el tablero introducido es válido, crearemos una función `validar_tablero`:
 ```python
 def validar_tablero(tablero):
@@ -206,8 +206,8 @@ def validar_tablero(tablero):
          - ``bloque_col*3 + c``: calcula la columna absoluta dentro del tablero.
          - Si el valor en esa celda no es 0 (es decir, no es un hueco), se agrega a la lista bloque.
 
-# Cálculos de candidatos
-## Cálculo de candidatos
+## Cálculos de candidatos
+### Cálculo de candidatos
 
 Para calcular los candidatos iniciales para cada celda, crearemos una función `calcular_candidatos`:
 
@@ -245,7 +245,7 @@ def calcular_candidatos(tablero):
         - Para recorrer el bloque, utilizaremos dos variables, `start_row` y `start_col`, que serán asignadas como `3 * (fila // 3)` y `3 * (col // 3)`, respectivamente. Estas dos variables sirven para calcular la cordenada superior izquierda del bloque 3x3 al que pertenece la celda actual. Tras ello, con un bucle, se recorrerán las filas y las columnas, pero de 3 en 3, en vez de hacerlo de 9 en 9, empezando desde las coordenadas que hemos calculado antes.
 - Finalmente, devolveremos la lista `candidatos` con todos los posibles candidatos en cada celda. Las siguientes funciones utilizarán técnicas heurísticas para eliminar más números de esta matriz de candidatos.
 
-## Impresión de candidatos
+### Impresión de candidatos
 
 Para imprimir los candidatos, utilizaremos una función parecida a `imprimir_tablero`, ligeramente modificada para imprmir correctamente los distintos candidatos:
 
@@ -274,14 +274,14 @@ def imprimir_candidatos(candidatos, paso_actual):
 - Después, se añade una barra vertical cada 3 celdas, excepto al final (`col != 8`), para visualizar la separación entre bloques.
 - Después de eso se hace lo mismo para las divisiones horizontales.
 
-# Técnicas heurísticas de resolución
+## Técnicas heurísticas de resolución
 Una vez que tenemos los candidatos iniciales, el programa intentará resolver el Sudoku utilizando una serie de técnicas lógicas o "heurísticas", que son las mismas que usaría una persona. Estas técnicas eliminan candidatos de las celdas vacías hasta que, idealmente, cada celda tiene un solo candidato, resolviendo así el puzzle.
 
 El programa aplicará estas técnicas en un bucle, ya que la aplicación de una técnica puede abrir la puerta a que otra sea aplicable. Además, como queremos utilizar siempre el método más "sencillo", el bucle se reiniciará si vemos que se han realizado cambios en los candidatos.
 
 Puedes ver una explicación más detallada sobre las técnicas heurísticas en la página anterior
 
-## Aplicación de candidatos únicos
+### Aplicación de candidatos únicos
 Esta es la técnica más básica y se conoce como "Naked Single". Si una celda vacía solo tiene un candidato posible, ese número debe ser la solución para esa celda.
 ```python
 def aplicar_candidato_unico(tablero, candidatos):
@@ -321,7 +321,7 @@ def aplicar_candidato_unico(tablero, candidatos):
     - Se imprime el estado actual del tablero y los candidatos para que el usuario vea el progreso.
 - Finalmente, devuelve `True` si se ha realizado algún cambio, o `False` si no. Esta variable la utilizaremos más tarde para saber si debemos aplicar la siguiente técnica o volver a aplicar todas las técnicas desde el principio
 
-## Eliminar candidatos
+### Eliminar candidatos
 
 Para algunas de las técnicas siguientes, usaremos una función auxiliar `eliminar_candidato` para no repetir código:
 
@@ -344,7 +344,7 @@ def eliminar_candidato(tablero, candidatos, fila, col, valor):
 ```
 - Esta función simplemente toma un valor y sus coordenadas, y lo elimina como candidato de las celdas afectadas en la misma fila, columna y bloque.
 
-## Aplicación de singles ocultos
+### Aplicación de singles ocultos
 Esta técnica, conocida como "Hidden Single", es ligeramente más avanzada. Busca un candidato que, dentro de una unidad (fila, columna o bloque), solo aparece en una celda. Aunque esa celda pueda tener otros candidatos, si es el único lugar posible para ese número en toda la unidad, debe ser el valor de la celda:
 
 ```python
@@ -411,7 +411,7 @@ def buscar_singles_ocultos_en_unidad(tablero, candidatos, celdas, nombre_unidad)
     - Se asigna ese `candidato` a la celda correspondiente del `tablero`.
     - Se actualiza la lista de candidatos de esa celda y se llama a `eliminar_candidato` para propagar la nueva información.
 
-## Aplicación de pares desnudos
+### Aplicación de pares desnudos
 La técnica de pares desnudos o _"Naked Pairs"_ busca dos celdas en la misma unidad (fila, columna o bloque) que contienen exactamente el mismo par de candidatos (y solo esos dos). Si se encuentra este par, sabemos que esos dos números deben ir en esas dos celdas, por lo que podemos eliminarlos como candidatos del resto de celdas de esa unidad.
 
 ```python
@@ -463,7 +463,7 @@ def buscar_pares_en_unidad(celdas, nombre_unidad):
     - Después, recorre el diccionario. Si un par de candidatos aparece exactamente en dos celdas (`len(indices) == 2`), hemos encontrado un par desnudo.
     - Por último, recorre todas las celdas de la unidad. A las celdas que *no* forman parte del par, les elimina los dos números del par de sus candidatos usando `difference_update`.
 
-## Aplicación de conjuntos desnudos (Tríos y Cuartetos)
+### Aplicación de conjuntos desnudos (Tríos y Cuartetos)
 Esta es una generalización de los Pares Desnudos. La lógica es: si encontramos un grupo de **N** celdas en la misma unidad que, entre todas, contienen un conjunto de exactamente **N** candidatos, podemos eliminar esos **N** candidatos de todas las demás celdas de esa unidad. El programa lo implementa para tríos (N=3) y cuartetos (N=4):
 
 ```python
@@ -525,7 +525,7 @@ def buscar_conjuntos_desnudos_en_unidad(celdas, tamaño, nombre_unidad):
 - La condición clave es `if len(conjunto) == tamaño`. Si se cumple, significa que la longitud de la lista `conjunto` es la misma que la que hemos pedido (3 o 4), por lo tanto, cumple la definición de conjunto desnudo.
 - Al igual que con los pares, se eliminan los candidatos del `conjunto` del resto de celdas de la unidad.
 
-## Aplicación de pares ocultos
+### Aplicación de pares ocultos
 La técnica de "Hidden Pairs" es la parte opuesta de los Pares Desnudos. Si dos candidatos aparecen únicamente en las mismas dos celdas dentro de una unidad (aunque esas celdas puedan tener otros candidatos), entonces sabemos que esas dos celdas deben contener esos dos números. Por lo tanto, podemos eliminar todos los *otros* candidatos de esas dos celdas.
 
 ```python
@@ -589,10 +589,10 @@ def buscar_pares_ocultos_en_unidad(celdas, nombre_unidad):
     - Comprueba si ambos candidatos aparecen exactamente en el mismo conjunto de dos celdas (`indices_i == indices_j and len(indices_i) == 2`).
     - Si se encuentra un par oculto, itera sobre las dos celdas identificadas. Para cada una, elimina todos los candidatos que no sean los dos que forman el par. Esto se hace eficientemente con `intersection_update`.
 
-# Resolución por Fuerza Bruta: Backtracking
+## Resolución por Fuerza Bruta: Backtracking
 Si las técnicas heurísticas no logran resolver el Sudoku por completo, el programa recurre a un algoritmo de fuerza bruta con retroceso (backtracking). Este método prueba sistemáticamente todos los números posibles en las celdas vacías hasta encontrar una solución o demostrar que no existe.
 
-## El núcleo recursivo del Backtracking
+### El núcleo recursivo del Backtracking
 El corazón del algoritmo es una función recursiva que intenta rellenar el tablero:
 
 ```python
@@ -632,7 +632,7 @@ def _resolver_sudoku_backtracking_recursivo(tablero, stats):
     6.  **Backtracking:** Si la llamada recursiva devuelve `False`, significa que la elección de ese número llevó a un callejón sin salida. En este punto, se "deshace" la elección poniendo la celda a `0` de nuevo y el bucle continúa para probar el siguiente número.
 - **Fallo:** Si el bucle termina sin que ningún número del 1 al 9 haya llevado a una solución, la función devuelve `False`, indicando a la llamada anterior que debe retroceder.
 
-## Funciones auxiliares para Backtracking
+### Funciones auxiliares para Backtracking
 El algoritmo de backtracking se apoya en dos funciones sencillas:
 
 ```python
@@ -663,7 +663,7 @@ def es_valido_colocar(tablero, fila, col, num):
 - `encontrar_celda_vacia()`: Simplemente recorre el tablero de arriba abajo y de izquierda a derecha, y devuelve las coordenadas de la primera celda con un `0` que encuentra. Si no hay ninguna, devuelve `None`.
 - `es_valido_colocar()`: Comprueba si colocar un `num` en una `(fila, col)` determinada viola las reglas del Sudoku (es decir, si ese número ya existe en la misma fila, columna o bloque 3x3).
 
-## Wrapper para llamar la función
+### Wrapper para llamar la función
 Para dar algún información al usuario en este proceso que no se realiza de una manera lógica o sistemática, crearemos una función que servirá como wrapper para llamar a la función principal de resolución y hacer un seguimiento de algunas estadísticas.
 ```python
 def resolver_sudoku_fuerza_bruta(tablero_previo_bt):
@@ -696,10 +696,10 @@ def resolver_sudoku_fuerza_bruta(tablero_previo_bt):
 - Se llama a la función de resolución.
 - Cuando termina, se resta el tiempo de inicio con el del final para averiguar el tiempo que se ha tardado.
 - Si el sudoku tiene solución, la devuelve, y si no, devuelve `None`, en ambos casos junto con las estadísticas.
-# Flujo principal del programa
+## Flujo principal del programa
 Finalmente, la función `main()` y el bloque de inicio del script (`if __name__ == "__main__":`) orquestan todo el proceso.
 
-## La función `main()`
+### La función `main()`
 Esta función controla el flujo de resolución completo.
 
 ```python
@@ -810,7 +810,7 @@ def main():
     - Finalmente, imprime la solución (si se encontró) junto con estadísticas interesantes como el tiempo tardado, el número de iteraciones y las celdas que rellenó el backtracking.
 - **Éxito por Heurísticas:** Si el tablero se resolvió solo con heurísticas, se informa al usuario y se muestra el tablero resuelto.
 
-## Punto de entrada del programa
+### Punto de entrada del programa
 Este es el código que se ejecuta cuando se inicia el script. Presenta un menú simple al usuario.
 
 ```python
@@ -835,7 +835,7 @@ if __name__ == "__main__":
 - El usuario puede elegir resolver un Sudoku (lo que llama a la función `main`) o salir del programa.
 - Esto proporciona una interfaz de usuario sencilla y reutilizable para el programa.
 
-# ¡Pruébalo tú mismo!
+## ¡Pruébalo tú mismo!
 
 Aquí tienes el código completo del resolutor de Sudokus, que puedes ejecutar haciendo click en el triángulo de arriba a la derecha. También puedes descargar el archivo del script entero en nuestro repositorio de GitHub.
 

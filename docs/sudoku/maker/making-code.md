@@ -5,10 +5,10 @@ ___
 
 El código, al igual que nuestro resolvedor, se dividirá en funciones modulares, cada una encargada de una parte específica del proceso de generación.
 
-# Funciones Auxiliares Comunes
+## Funciones Auxiliares Comunes
 Para empezar, nuestro generador necesitará algunas funciones de apoyo que ya nos resultan familiares del proyecto anterior. Estas funciones se encargan de tareas básicas como imprimir el tablero o validar la colocación de un número.
 
-## Impresión del tablero
+### Impresión del tablero
 Para visualizar tanto el puzzle final como su solución, necesitamos una forma de mostrar el tablero en la consola. Reutilizaremos la función `imprimir_tablero`, que convierte nuestra matriz 2D en una cuadrícula de Sudoku fácil de leer.
 
 ```python
@@ -32,7 +32,7 @@ def imprimir_tablero(tablero):
 - Si la celda contiene un `0`, la imprime como un punto (`.`) para indicar un hueco.
 - Añade separadores verticales (`|`) y horizontales (`-`) para delinear los bloques de 3x3, mejorando la legibilidad.
 
-## Búsqueda de celdas y validación
+### Búsqueda de celdas y validación
 El corazón de nuestro generador, el algoritmo de backtracking, necesita dos herramientas clave: una para encontrar la siguiente celda a rellenar y otra para comprobar si un número puede ser colocado en ella. También usamos estas dos funciones en el algoritmo de resolución anterior.
 
 ```python
@@ -63,12 +63,12 @@ def es_valido_colocar(tablero, fila, col, num):
 - **`encontrar_celda_vacia()`**: Esta función recorre el tablero de arriba a abajo y de izquierda a derecha. Devuelve las coordenadas `(fila, col)` de la primera celda que contiene un `0`. Si no encuentra ninguna, significa que el tablero está lleno y devuelve `None`.
 - **`es_valido_colocar()`**: Esta función es fundamental. Dado un tablero, unas coordenadas y un número, comprueba si colocar ese número viola las reglas del Sudoku. Revisa la fila, la columna y el bloque 3x3 correspondiente para asegurarse de que el número no está ya presente. Si el número es válido, devuelve `True`; de lo contrario, `False`.
 
-# Generación del Sudoku
+## Generación del Sudoku
 Aquí es donde reside la nueva lógica. El proceso de creación se divide en dos fases principales:
 1.  **Generar una solución completa**: Crear un tablero de Sudoku 9x9 completamente resuelto y válido.
 2.  **Crear el puzzle**: A partir de la solución completa, eliminar un número de casillas para crear un puzzle con un nivel de dificultad determinado por el número de pistas restantes.
 
-## Generando una solución completa: Backtracking con aleatoriedad
+### Generando una solución completa: Backtracking con aleatoriedad
 Para generar un tablero resuelto, usaremos un algoritmo de backtracking, similar al que usamos para resolver. Sin embargo, hay una diferencia crucial: para crear un tablero diferente cada vez, introduciremos un elemento de **aleatoriedad**.
 
 ```python
@@ -109,7 +109,7 @@ def generar_sudoku_lleno():
 
 Este pequeño cambio (`random.shuffle()`) es lo que garantiza que cada vez que ejecutemos el programa, obtengamos un tablero de Sudoku completamente diferente.
 
-## Creando el puzzle: Eliminando casillas
+### Creando el puzzle: Eliminando casillas
 Una vez que tenemos una solución completa, necesitamos "vaciarla" para crear el puzzle que resolverá el usuario. La dificultad del puzzle dependerá del número de pistas que dejemos.
 
 ```python
@@ -139,10 +139,10 @@ def crear_puzzle(tablero_completo, pistas):
 Este método de eliminación de casillas es sencillo y eficaz, pero no garantiza que el Sudoku resultante tenga una única solución. Los algoritmos de generación más avanzados comprueban la unicidad de la solución después de cada eliminación, pero para nuestro propósito didáctico, este enfoque es perfecto.
 :::
 
-# Flujo principal del programa
+## Flujo principal del programa
 La función `main()` y el bloque `if __name__ == "__main__":` se encargan de unir todas las piezas y de interactuar con el usuario.
 
-## La función `main()`
+### La función `main()`
 Esta función orquesta todo el proceso de generación y presentación.
 
 ```python
@@ -177,7 +177,7 @@ def main():
 - **Presentación**: Imprime el puzzle generado para el usuario.
 - **Mostrar solución**: Finalmente, pregunta al usuario si desea ver la solución. Si la respuesta es afirmativa, imprime el tablero completo que se generó al principio.
 
-## Punto de entrada del programa
+### Punto de entrada del programa
 Este es el código que se ejecuta al iniciar el script. Al igual que en el resolvedor, presenta un menú simple.
 
 ```python
@@ -203,7 +203,7 @@ if __name__ == "__main__":
 - El usuario puede elegir generar un nuevo Sudoku (que llama a la función `main`) o salir del programa.
 - Proporciona una interfaz de usuario clara y reutilizable.
 
-# ¡Pruébalo tú mismo!
+## ¡Pruébalo tú mismo!
 Aquí tienes el código completo del generador de Sudokus, que puedes ejecutar haciendo click en el triángulo de arriba a la derecha. También puedes descargar el archivo del script entero en nuestro repositorio de GitHub.
 
 ```python:line-numbers

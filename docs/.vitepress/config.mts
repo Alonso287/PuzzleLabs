@@ -275,7 +275,18 @@ export default withMermaid(
         { rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap' 
          }
-      ]
+      ],
+      ['style', {}, `
+
+        body {
+         font-family-mono: 'Fira Code', monospace;
+        }
+
+        :root {
+         font-feature-settings: "liga" 1, "cv02" 1, "ss01" 1, "zero" 1, "ss05" 1, "ss03" 1, "cv29" 1, "cv30" 1, "ss02" 1, "cv19" 1, "cv23" 1, "ss08" 1, "cv24" 1, "ss09" 1, "cv25" 1, "cv26" 1, "cv32" 1, "cv28" 1, "ss07" 1;
+        }
+
+    `],
     ],
 
     vite: {
