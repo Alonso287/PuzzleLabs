@@ -166,7 +166,7 @@ export default withMermaid(
 
       footer: {
         message: 'Contenido bajo  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a> · Código bajo <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener noreferrer">AGPL-3.0</a>',
-        copyright: 'PuzzleLabs · © 2025 Alonso Navarro'
+        copyright: 'PuzzleLabs <a href="https://www.lanzadigital.com/wp-content/uploads/2024/05/Adrian-Andujar.jpg" target="_blank" rel="noopener noreferrer">·</a> © 2025 Alonso Navarro'
       },
 
       editLink:{
